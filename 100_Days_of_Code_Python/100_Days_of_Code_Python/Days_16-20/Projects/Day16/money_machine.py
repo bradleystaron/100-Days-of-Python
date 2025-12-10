@@ -1,4 +1,4 @@
-from menu import MenuItem
+
 
 class MoneyMachine:
 
@@ -19,16 +19,16 @@ class MoneyMachine:
         """Prints the current profit"""
         print(f"Money: {self.CURRENCY}{self.profit}")
 
-    def process_coins(self):
+    def process_coins(self, cost):
         """Returns the total calculated from coins inserted."""
-        print(f"Please insert {MenuItem.cost} coins.")
+        print(f"Please insert coins totaling ${cost}.")
         for coin in self.COIN_VALUES:
             self.money_received += int(input(f"How many {coin}?: ")) * self.COIN_VALUES[coin]
         return self.money_received
 
     def make_payment(self, cost):
         """Returns True when payment is accepted, or False if insufficient."""
-        self.process_coins()
+        self.process_coins(cost)   # <-- pass the cost
         if self.money_received >= cost:
             change = round(self.money_received - cost, 2)
             print(f"Here is {self.CURRENCY}{change} in change.")
