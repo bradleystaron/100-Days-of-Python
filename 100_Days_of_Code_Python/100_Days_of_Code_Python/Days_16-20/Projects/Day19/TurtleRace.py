@@ -31,3 +31,9 @@ while is_race_on:
                 print(f"You've won! The {winning_color} turtle is the winner!")
             else:
                 print(f"You've lost! The {winning_color} turtle is the winner!")
+                
+# Move each turtle a random distance forward
+        rand_distance = random.randint(0, 10)
+        turtle.forward(rand_distance)
+screen.exitonclick()
+        
